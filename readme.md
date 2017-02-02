@@ -10,3 +10,7 @@ Use canvas to draw an animated gif
 ## Usage
 
 Nothing needed to install, just open the index file in a browser. Drawing done entirely in script, see examples.
+
+
+
+Create a new jsgif with a draw function. When you are ready to have your animation saved as a gif, give it the option "compile": true

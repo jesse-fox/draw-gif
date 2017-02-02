@@ -219,16 +219,3 @@ function js_gif(options) {
 		init();
 
 }
-
-
-
-//Wait for DOM ready.
-$(function() {
-
-	//Add a canvas to the page to paint on
-	$("#canvas-wrap").append("<canvas id='main'></canvas>");
-
-	//Make a new gif and set its target
-	var new_gif = new js_gif({ target: "main"});
-
-});

@@ -4,10 +4,9 @@ function js_gif(options) {
 
 	var self = this;
 
-
 	//Set defaults for options
 	var options = options || {};
-	options.target = options.target || {};
+	//self.options.target = self.options.target || {};
 
 
 	//Setup variables
@@ -32,16 +31,18 @@ function js_gif(options) {
 	compile_gif = false;
 	gif_done = false;
 
-	var init = function() {
+
+	// Init runs on object creation to set anim up and start it
+	self.init = function() {
 
 
 		encoder.start();
 
-		animation_step();
+		self.animation_step();
 
-	}
+	};
 
-	var animation_step = function() {
+	self.animation_step = function() {
 
 		frame++;
 		
@@ -56,12 +57,12 @@ function js_gif(options) {
 		}
 
 		//Start next frame
-		requestAnimationFrame(animation_step);
+		requestAnimationFrame(self.animation_step);
 
-	}
+	};
 
 
-	add_frame = function() {
+	self.add_frame = function() {
 
 		if (!gif_done) {
 
@@ -84,7 +85,16 @@ function js_gif(options) {
 
 		}
 
-	}
+	};
+
+	// Automatically run init on creation.
+	self.init();
+
+}
+
+
+function gif_helper() {
+
 
 	// Draw circle shape with given settings
 	circle = function(settings) {
@@ -120,7 +130,7 @@ function js_gif(options) {
 		ctx.closePath();
 
 
-	},
+	};
 
 	wiggle = function(settings) {
 		settings = settings || {};
@@ -164,9 +174,9 @@ function js_gif(options) {
 
 		ctx.closePath();
 
-	},
+	};
 
 
-	init();
 
 }
+

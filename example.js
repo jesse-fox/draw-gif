@@ -41,7 +41,7 @@ function draw( ctx, frame ) {
 	//console.log( Math.sin(frame/30)* 5);
 
 
-	circle({
+	circle(ctx, {
 		x: 150,
 		y: 150 ,
 
@@ -56,7 +56,7 @@ function draw( ctx, frame ) {
 
 
 
-	circle({
+	circle(ctx, {
 		x: 150 + spiral_x,
 		y: 150 + spiral_y ,
 

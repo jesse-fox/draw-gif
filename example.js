@@ -70,19 +70,7 @@ function draw( ctx, frame ) {
 
 
 
-/*
-	circle({
-		x: 150,
-		y:150 + spiral_y,
 
-		radius: 15,
-		lineWidth: 15,
-		color: "#FFF",
-		fill: 1,
-		fill_color: "#99A"
 
-	});
-*/
 
 } // draw()
-

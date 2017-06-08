@@ -1,7 +1,7 @@
 
 $(function() {
 
-    $("#canvas-wrap").append("<canvas id='main'></canvas>");
+    $("body").append("<canvas id='main'></canvas>");
 
 
     function gif() {
@@ -10,7 +10,6 @@ $(function() {
         encoder = new GIFEncoder();
         canvas = document.getElementById("main");
         ctx = canvas.getContext("2d");
-
 
 
         init = function() {
@@ -25,21 +24,15 @@ $(function() {
             canvas.width = 200;
 
 
-            qs = 1;
-            qe = 2;
+            position_one = 1;
+            position_two = 2;
 
-            ws = 2;
-            we =1;
 
-            es = 1.5;
-            ee = 2.5;
-
-            rs = 2.5;
-            re = 1.5;
+            position_three = 2.5;
+            position_four = 1.5;
 
 
             steps = 0;
-
 
 
             animation_step();
@@ -63,26 +56,26 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(100, 100, 80, qs * Math.PI, qe * Math.PI);
+            ctx.arc(100, 100, 80, position_one * Math.PI, position_two * Math.PI);
 
-            ctx.arc(100, 100, 60, ws * Math.PI, we * Math.PI);
+            ctx.arc(100, 100, 60, position_two * Math.PI, position_one * Math.PI);
 
-            ctx.arc(100, 100, 40, es * Math.PI, ee * Math.PI);
+            ctx.arc(100, 100, 40, position_four * Math.PI, position_three * Math.PI);
 
-            ctx.arc(100, 100, 20,rs * Math.PI, re * Math.PI);
+            ctx.arc(100, 100, 20,position_three * Math.PI, position_four * Math.PI);
             ctx.closePath();
             ctx.stroke();
 
             ctx.beginPath();
             ctx.strokeStyle = "#ff88ff";
 
-            ctx.arc(100, 100, 75, qs * Math.PI, qe * Math.PI);
+            ctx.arc(100, 100, 75, position_one * Math.PI, position_two * Math.PI);
 
-            ctx.arc(100, 100, 55, ws * Math.PI, we * Math.PI);
+            ctx.arc(100, 100, 55, position_two * Math.PI, position_one * Math.PI);
 
-            ctx.arc(100, 100, 35, es * Math.PI, ee * Math.PI);
+            ctx.arc(100, 100, 35, position_four * Math.PI, position_three * Math.PI);
 
-            ctx.arc(100, 100, 15,rs * Math.PI, re * Math.PI);
+            ctx.arc(100, 100, 15,position_three * Math.PI, position_four * Math.PI);
 
 
 
@@ -91,33 +84,17 @@ $(function() {
             ctx.closePath();
 
 
-            qs += .01;
-            qe += .01;
+            position_one += .01;
+            position_two += .01;
 
-            ws -= .01;
-            we -= .01;
-
-            es += .01;
-            ee += .01;
-
-            rs -= .01;
-            re -= .01;
+            position_three -= .01;
+            position_four -= .01;
 
 
             steps++;
+
             console.log(steps);
 
-            encoder.addFrame(ctx);
-
-            if (steps == 10) {
-
-                encoder.finish();
-
-                $output = $("#output").append("<img>");
-
-                $output.attr("src",'data:image/gif;base64,'+encode64(encoder.stream().getData()))
-
-            }
 
             requestAnimationFrame(animation_step);
 
@@ -132,5 +109,3 @@ $(function() {
     var new_gif = new gif();
 
 });
-
-

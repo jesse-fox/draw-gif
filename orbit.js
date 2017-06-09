@@ -61,7 +61,7 @@ function draw( ctx, frame ) {
 		y: 150 + spiral_y ,
 
 		radius: 10 + resize,
-		lineWidth: 5,
+		lineWidth: 0,
 		color: "#FFF",
 		fill: 1,
 		fill_color: "#99A"

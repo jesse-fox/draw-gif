@@ -25,34 +25,16 @@ $(function() {
 function draw( ctx, frame ) {
 
 	frame++;
-	//ctx.clearRect(0,0,canvas.width, canvas.height);
+
 	ctx.fillStyle = "#123";
 	//ctx.fillRect(0,0,canvas.width,canvas.height);
 	ctx.fillRect(0,0,300, 300);
 
 
 	var spiral_x = (125) * Math.sin( frame / 20 );
-	var spiral_y = (100) * Math.sin( frame / 40 );
+	var spiral_y = (125) * Math.sin( frame / 40 );
 
-	var resize = 5 * Math.sin( 10 + frame / 15 );
-
-
-
-	//console.log( Math.sin(frame/30)* 5);
-
-
-	circle(ctx, {
-		x: 150,
-		y: 150 ,
-
-		radius: 50,
-		lineWidth: 20,
-		color: "#FFF",
-		fill: 1,
-		fill_color: "#409"
-
-	});
-
+	var resize = 8 * Math.sin( 8.1 + frame / 20 );
 
 
 
@@ -61,15 +43,12 @@ function draw( ctx, frame ) {
 		y: 150 + spiral_y ,
 
 		radius: 10 + resize,
-		lineWidth: 5,
-		color: "#FFF",
+		lineWidth: 20 - resize,
+		color: "#000",
 		fill: 1,
-		fill_color: "#99A"
+		fill_color: "#fff"
 
 	});
-
-
-
 
 
 

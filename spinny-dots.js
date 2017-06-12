@@ -1,4 +1,6 @@
 
+// If you want to alter the animation, it will be easiest to only show 1 group of dots at a time!
+
 $(function() {
 
     $("#canvas-wrap").append("<canvas id='main'></canvas>");
@@ -14,7 +16,8 @@ $(function() {
         canvas.height = 100;
         canvas.width = 300;
 
-        bg_color = "#ff7733"
+		bg_color = "#fe2ba9"
+        line_color = "#FFF"
 
         encoder.setRepeat(0); //auto-loop
         encoder.setDelay(15); //~60FPS
@@ -22,9 +25,11 @@ $(function() {
 
         frame = 0;
 
+		// There's no trick to finding the perfect loop point, just trial & err
         total_frames = 63;
 
-        compile_gif = false;
+		// Keep false while editing the gif
+        compile_gif = true;
 
         gif_done = false;
 
@@ -34,7 +39,7 @@ $(function() {
 
 			ctx.fillStyle = bg_color;
 			ctx.lineWidth = 3;
-            ctx.strokeStyle = "#fff";
+            ctx.strokeStyle = line_color;
 
 
 			movement = 1;
@@ -55,19 +60,19 @@ $(function() {
 			movement += .1;
 
 
-ctx.strokeStyle = "#336699";
 			// First set of circles
 			for ( var i = 1; i < 6; i++ ) {
 
 
 				// Move each over 50px
-				var offset_x = (50 * i) + (25 * Math.sin( movement ));
 
 				// Alternative path for more variance
 				if ( i % 2 == 0 ) {
-					var offset_y = 25 * Math.sin(movement) + canvas.height/10 * 4;
+					var offset_x = (50 * i) + (18 * Math.sin( movement - 20));
+					var offset_y = 25 * Math.sin(movement+5) + canvas.height/ 3;
 				} else {
-					var offset_y = 25 * Math.cos(movement) + canvas.height/10 * 4;
+					var offset_x = (50 * i) + (30 * Math.sin( movement - 10));
+					var offset_y = 25 * Math.cos(movement + 20) + canvas.height/ 2.5;
 				}
 
 
@@ -78,7 +83,6 @@ ctx.strokeStyle = "#336699";
 
 			} // for
 
-			ctx.strokeStyle = "#FFFFFF";
 
 
 			// Second set
@@ -159,10 +163,11 @@ ctx.strokeStyle = "#336699";
 
                     encoder.finish();
 
-
                     $("#output").append("<img>");
 
-                    $("#output img").attr("src",'data:image/gif;base64,'+encode64(encoder.stream().getData()));
+					var img = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+
+                    $("#output img").attr("src", img);
 
                     gif_done = true;
 

@@ -1,4 +1,6 @@
 
+// Old file, may be messy
+
 $(function() {
 
     $("#canvas-wrap").append("<canvas id='main'></canvas>");
@@ -36,17 +38,15 @@ $(function() {
 
 
 
-            qs = 1;
-            qe = 2;
+            position_one = 1;
+            position_two = 2;
 
-            ws = 2;
-            we = 1;
+            position_three = 2;
+            position_four = 1;
 
-            es = 1.5;
-            ee = 2.5;
 
-            rs = 2.5;
-            re = 1.5;
+            position_five = 2.5;
+            position_six = 1.5;
 
 
 
@@ -75,7 +75,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(50 + 25 * Math.sin(qe + re ), 25 * Math.sin(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(50 + 25 * Math.sin(position_two + position_six ), 25 * Math.sin(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -83,7 +83,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(100 + 25 * Math.sin(qe + re ) , 25 * Math.cos(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(100 + 25 * Math.sin(position_two + position_six ) , 25 * Math.cos(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -91,7 +91,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(150 + 25 * Math.sin(qe + re ) , 25 * Math.sin(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(150 + 25 * Math.sin(position_two + position_six ) , 25 * Math.sin(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -99,7 +99,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(200 + 25 * Math.sin(qe + re ) , 25 * Math.cos(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(200 + 25 * Math.sin(position_two + position_six ) , 25 * Math.cos(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -107,7 +107,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(250 + 25 * Math.sin(qe + re ) , 25 * Math.sin(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(250 + 25 * Math.sin(position_two + position_six ) , 25 * Math.sin(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -115,7 +115,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(300 + 25 * Math.sin(qe + re ) , 25 * Math.cos(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(300 + 25 * Math.sin(position_two + position_six ) , 25 * Math.cos(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -123,7 +123,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(350 + 25 * Math.sin(qe + re ) , 25 * Math.sin(qs) + canvas.height/10 * 4, 5,100,122);
+            ctx.arc(350 + 25 * Math.sin(position_two + position_six ) , 25 * Math.sin(position_one) + canvas.height/10 * 4, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -140,7 +140,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(50  ,40 * Math.sin(qs + 47) + canvas.height/2, 5,100,122);
+            ctx.arc(50  ,40 * Math.sin(position_one + 47) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -148,7 +148,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(100 ,40 * Math.cos(qs + 35) + canvas.height/2, 5,100,122);
+            ctx.arc(100 ,40 * Math.cos(position_one + 35) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -156,7 +156,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(150  ,40 * Math.sin(qs + 47) + canvas.height/2, 5,100,122);
+            ctx.arc(150  ,40 * Math.sin(position_one + 47) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -164,7 +164,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(200 ,40 * Math.cos(qs + 35) + canvas.height/2, 5,100,122);
+            ctx.arc(200 ,40 * Math.cos(position_one + 35) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -172,7 +172,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(250 , 40 * Math.sin(qs  + 47) + canvas.height/2, 5,100,122);
+            ctx.arc(250 , 40 * Math.sin(position_one  + 47) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -180,7 +180,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(300,40 * Math.cos(qs + 35) + canvas.height/2, 5,100,122);
+            ctx.arc(300,40 * Math.cos(position_one + 35) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -188,7 +188,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(350 ,40 * Math.sin(qs + 47) + canvas.height/2, 5,100,122);
+            ctx.arc(350 ,40 * Math.sin(position_one + 47) + canvas.height/2, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -202,7 +202,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(50 + 25 * Math.sin(qe + rs) ,-1* 25 * Math.cos(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(50 + 25 * Math.sin(position_two + position_five) ,-1* 25 * Math.cos(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -210,7 +210,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(100  + 25 * Math.sin(qe + rs),-1* 25 * Math.sin(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(100  + 25 * Math.sin(position_two + position_five),-1* 25 * Math.sin(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -218,7 +218,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(150 + 25 * Math.sin(qe + rs) ,-1* 25 * Math.cos(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(150 + 25 * Math.sin(position_two + position_five) ,-1* 25 * Math.cos(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -226,7 +226,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(200 + 25 * Math.sin(qe + rs) ,-1* 25 * Math.sin(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(200 + 25 * Math.sin(position_two + position_five) ,-1* 25 * Math.sin(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -234,7 +234,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(250 + 25 * Math.sin(qe + rs) ,-1* 25 * Math.cos(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(250 + 25 * Math.sin(position_two + position_five) ,-1* 25 * Math.cos(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -242,7 +242,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(300 + 25 * Math.sin(qe + rs) ,-1* 25 * Math.sin(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(300 + 25 * Math.sin(position_two + position_five) ,-1* 25 * Math.sin(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -250,7 +250,7 @@ $(function() {
 
             ctx.beginPath();
 
-            ctx.arc(350  + 25 * Math.sin(qe + rs),-1* 25 * Math.cos(qs) + canvas.height/10*6, 5,100,122);
+            ctx.arc(350  + 25 * Math.sin(position_two + position_five),-1* 25 * Math.cos(position_one) + canvas.height/10*6, 5,100,122);
             ctx.stroke();
 
             ctx.closePath();
@@ -263,17 +263,16 @@ $(function() {
 
 
 
-            qs += .1;
-            qe += .1;
+            position_one += .1;
+            position_two += .1;
 
-            ws -= .01;
-            we -= .01;
+            position_three -= .01;
+            position_four -= .01;
 
-            es += .1;
-            ee += .1;
 
-            rs - 10;
-            re - 10;
+
+            position_five -= 10;
+            position_six - 10;
 
 
 
@@ -323,5 +322,3 @@ $(function() {
     var new_gif = new gif();
 
 });
-
-

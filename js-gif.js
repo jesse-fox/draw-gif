@@ -20,7 +20,6 @@ function js_gif(options) {
 	canvas.height = 300;
 	canvas.width = 300;
 
-	var bg_color = "#409"
 
 	encoder.setRepeat(0); //auto-loop
 	encoder.setDelay(20); //~60FPS
@@ -45,7 +44,7 @@ function js_gif(options) {
 	self.animation_step = function() {
 
 		frame++;
-		
+
 		options.draw(ctx, frame);
 
 
@@ -174,8 +173,3 @@ var stroke = function(ctx, settings){
 	ctx.closePath();
 
 };
-
-
-
-
-

@@ -16,14 +16,15 @@ function js_gif(options) {
 	canvas.height = 300;
 	canvas.width = 100;
 
-	var bg_color = "#99A"
+	var bg_color = "#8F2"
+	var line_color = "#222"
 
 	encoder.setRepeat(0); //auto-loop
 	encoder.setDelay(20); //~60FPS
 	encoder.setSize(canvas.width, canvas.height);
 
 	frame = 0;
-	total_frames = 73;
+	total_frames = 188;
 	compile_gif = false;
 	gif_done = false;
 
@@ -45,29 +46,19 @@ function js_gif(options) {
 
 
 
-		var spiral_x = (125) * Math.sin( frame * .05);
-		var spiral_y = (125) * Math.sin( frame/30);
+		var movement_x = (125) * Math.sin( frame * .05);
+		var movement_y = (125) * Math.sin( frame/30);
 
 
-		console.log( Math.sin(frame/30)* 5);
-/*
-		circle({
-
-			x:150,
-			y:150 + spiral_y,
-
-			radius: 10 + Math.cos(frame/30) * 5,
-			lineWidth: 3,
-			color: "#123"
-
-		});*/
+		//console.log( Math.sin(frame/30)* 5);
 
 
 
+		// Left side
 		stroke({
 			start: {x: 25, y: 0},
 			stop: {x: 25, y: 300},
-			color: "rgba(255, 255, 255, 1)",
+			color: line_color,
 			width: 10
 
 		});
@@ -75,50 +66,41 @@ function js_gif(options) {
 
 		circle({
 			x: 25,
-			y: 0 - spiral_y ,
+			y: 150 - movement_y ,
 
 			radius: 15,
 			lineWidth: 15,
-			color: "#FFF",
+			color: line_color,
 			fill: 1,
-			fill_color: "#99A"
+			fill_color: line_color
 
 		});
 
 
-	stroke({
-		start: {x: 75, y: 0},
-		stop: {x: 75, y: 300},
-		color: "rgba(255, 255, 255, 1)",
-		width: 10
+		// Right side
+		stroke({
+			start: {x: 75, y: 0},
+			stop: {x: 75, y: 300},
+			color: line_color,
+			width: 10
 
-	});
-
-
-	circle({
-		x: 75,
-		y:150 + spiral_y,
-
-		radius: 15,
-		lineWidth: 15,
-		color: "#FFF",
-		fill: 1,
-		fill_color: "#99A"
-
-	});
+		});
 
 
+		circle({
+			x: 75,
+			y:150 + movement_y,
 
-		ctx.lineWidth = 1;
-		ctx.beginPath();
-		//ctx.moveTo(150, 125);
+			radius: 15,
+			lineWidth: 15,
+			color: line_color,
+			fill: 1,
+			fill_color: line_color
 
-		//ctx.bezierCurveTo(0, 0, 0+ 2*frame, 0+frame, 100, 100);
-		//ctx.bezierCurveTo(275, 300, 300, 175, 125, 125);
-		//ctx.bezierCurveTo(-25, 225, 100, 325, 150, 125);
+		});
 
-		ctx.stroke();
-		ctx.closePath();
+
+
 
 
 		//Don't add frame or save unless compiling gif

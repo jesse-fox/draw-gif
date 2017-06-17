@@ -10,32 +10,32 @@ function js_gif(options) {
 
 
 	//Setup variables
-	var encoder = new GIFEncoder();
-	var canvas = document.createElement("canvas");
-	var ctx = canvas.getContext("2d");
+	self.encoder = new GIFEncoder();
+	self.canvas = document.createElement("canvas");
+	self.ctx = self.canvas.getContext("2d");
 
-	$("body").append(canvas);
-
-
-	canvas.height = 300;
-	canvas.width = 300;
+	$("body").append(self.canvas);
 
 
-	encoder.setRepeat(0); //auto-loop
-	encoder.setDelay(20); //~60FPS
-	encoder.setSize(canvas.width, canvas.height);
+	self.canvas.height = options.height || 300;
+	self.canvas.width = options.width || 300;
 
-	frame = 0;
-	total_frames = 73;
-	compile_gif = false;
-	gif_done = false;
+
+	self.encoder.setRepeat(0); //auto-loop
+	self.encoder.setDelay(20); //~60FPS
+	self.encoder.setSize(self.canvas.width, self.canvas.height);
+
+	self.frame = options.frame || 0;
+	self.total_frames = options.total_frames || 73;
+	self.compile_gif = options.compile_gif || false;
+	self.gif_done = false;
 
 
 	// Init runs on object creation to set anim up and start it
 	self.init = function() {
 
 
-		encoder.start();
+		self.encoder.start();
 
 		self.animation_step();
 
@@ -43,15 +43,16 @@ function js_gif(options) {
 
 	self.animation_step = function() {
 
-		frame++;
+		self.frame++;
 
-		options.draw(ctx, frame);
+		// Call the draw function that was passed in
+		options.draw(self.ctx, self.frame);
 
 
 		//Don't add frame or save unless compiling gif
-		if (compile_gif) {
+		if (self.compile_gif) {
 
-			add_frame();
+			self.add_frame();
 
 		}
 
@@ -63,22 +64,24 @@ function js_gif(options) {
 
 	self.add_frame = function() {
 
-		if (!gif_done) {
+		if (!self.gif_done) {
 
-			console.log("Frame: ", frame);
-			encoder.addFrame(ctx);
+			console.log("Frame: ", self.frame);
+			self.encoder.addFrame(self.ctx);
 
 			//Check if our gif has all needed frames
-			if (frame >= total_frames) {
+			if (self.frame >= self.total_frames) {
 
-				encoder.finish();
+				self.encoder.finish();
 
 
-				$("#output").append("<img>");
+				$("body").append("<img id='output'>");
 
-				$("#output img").attr("src",'data:image/gif;base64,'+encode64(encoder.stream().getData()));
+				$("#output").attr("src",'data:image/gif;base64,'+encode64(self.encoder.stream().getData()));
 
-				gif_done = true;
+				self.gif_done = true;
+
+				
 
 			}
 
@@ -90,7 +93,6 @@ function js_gif(options) {
 	self.init();
 
 }
-
 
 
 
@@ -116,7 +118,6 @@ var circle = function(ctx, settings) {
 	ctx.fillStyle = settings.fill_color || "#000000";
 
 
-
 	ctx.beginPath();
 
 	ctx.arc(settings.x + settings.offset_x, settings.y + settings.offset_y, settings.radius,0,7);
@@ -127,8 +128,8 @@ var circle = function(ctx, settings) {
 
 	ctx.closePath();
 
-
 };
+
 
 var wiggle = function(ctx, settings) {
 	settings = settings || {};
@@ -151,6 +152,7 @@ var wiggle = function(ctx, settings) {
 
 
 };
+
 
 var stroke = function(ctx, settings){
 	settings = settings || {};

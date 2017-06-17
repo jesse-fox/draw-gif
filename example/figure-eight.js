@@ -13,7 +13,8 @@ $(function() {
 		bg_color: "#123456",
 
 		//When you're happy with your animation, change this to true to save as a gif
-		compile: true,
+		compile_gif: true,
+		total_frames: 100,
 
 		draw: draw
 	});
@@ -24,11 +25,10 @@ $(function() {
 
 function draw( ctx, frame ) {
 
-	//frame++;
 
 	ctx.fillStyle = "#123";
 	//ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.fillRect(0,0,300, 300);
+	ctx.fillRect(0,0, 300, 300);
 
 
 	var spiral_x = (125) * Math.sin( frame / 20 );

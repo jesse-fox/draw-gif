@@ -26,7 +26,7 @@ function js_gif(options) {
 	self.encoder.setSize(self.canvas.width, self.canvas.height);
 
 	self.frame = options.frame || 0;
-	self.total_frames = options.total_frames || 73;
+	self.total_frames = options.total_frames || 20;
 	self.compile_gif = options.compile_gif || false;
 	self.gif_done = false;
 
@@ -81,7 +81,9 @@ function js_gif(options) {
 
 				self.gif_done = true;
 
-				
+				//Hack to stop script from continuing, so you can see exactly where it stopped
+				throw new Error("GIF is done!");
+
 
 			}
 
@@ -141,7 +143,7 @@ var wiggle = function(ctx, settings) {
 
 	settings.offset = settings.offset || 0;
 
-	number = 0;
+	var number = 0;
 
 	if (settings.type == "sin") number = Math.sin(settings.seed * settings.speed + settings.offset) * settings.range;
 

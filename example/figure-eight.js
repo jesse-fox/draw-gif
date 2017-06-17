@@ -14,13 +14,12 @@ $(function() {
 
 		//When you're happy with your animation, change this to true to save as a gif
 		compile_gif: true,
-		total_frames: 100,
+		total_frames: 250,
 
 		draw: draw
 	});
 
 });
-
 
 
 function draw( ctx, frame ) {
@@ -35,7 +34,6 @@ function draw( ctx, frame ) {
 	var spiral_y = (125) * Math.sin( frame / 40 );
 
 	var resize = 8 * Math.sin( 8.1 + frame / 20 );
-
 
 
 	circle(ctx, {

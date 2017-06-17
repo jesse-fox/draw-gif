@@ -13,7 +13,7 @@ $(function() {
 		bg_color: "#123456",
 
 		//When you're happy with your animation, change this to true to save as a gif
-		compile: false,
+		compile: true,
 
 		draw: draw
 	});
@@ -24,7 +24,7 @@ $(function() {
 
 function draw( ctx, frame ) {
 
-	frame++;
+	//frame++;
 
 	ctx.fillStyle = "#123";
 	//ctx.fillRect(0,0,canvas.width,canvas.height);
